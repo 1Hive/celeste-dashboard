@@ -12,6 +12,11 @@ export const KNOWN_TOKEN_BY_ENV = {
       decimals: 18,
       symbol: 'HNY',
     },
+    xdai: {
+      address: '0x71850b7e9ee3f13ab46d67167341e4bdc905eef9',
+      decimals: 18,
+      symbol: 'HNY',
+    },
   },
   ANT: {
     main: {

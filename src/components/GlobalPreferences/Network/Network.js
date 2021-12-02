@@ -125,8 +125,7 @@ function Field({ label, text, onTextChange, error }) {
 }
 
 const useNetwork = () => {
-  const defaultEthNode =
-    getDefaultEthNode() || getNetworkConfig().nodes.defaultEth
+  const defaultEthNode = getDefaultEthNode() || getNetworkConfig().defaultEth
   const [settingsErrors, setSettingsErrors] = useState(null)
   const [ethNode, setEthNodeValue] = useState(defaultEthNode)
   const [ipfsGateway, setIpfsGatewayValue] = useState(defaultIpfsGateway)

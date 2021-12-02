@@ -2,7 +2,7 @@ import env from '../environment'
 import { ethers, providers as Providers, utils } from 'ethers'
 import { InvalidURI, InvalidNetworkType, NoConnection } from '../errors'
 import { validHttpFormat } from './uri-utils'
-import { getPreferredChain, getDefaultEthNode } from '../local-settings'
+import { getPreferredChain } from '../local-settings'
 import { getNetworkConfig } from '../networks'
 
 const { id: keccak256, solidityKeccak256: soliditySha3, toUtf8String } = utils
@@ -25,12 +25,10 @@ function getBackendServicesKeys() {
 }
 
 export function getDefaultProvider() {
-  const type = getNetworkType()
-  const defaultEthNode =
-    getDefaultEthNode() || getNetworkConfig().nodes.defaultEth
+  const { defaultEth, type } = getNetworkConfig(getPreferredChain())
 
-  return defaultEthNode
-    ? new Providers.StaticJsonRpcProvider(defaultEthNode)
+  return defaultEth
+    ? new Providers.StaticJsonRpcProvider(defaultEth)
     : ethers.getDefaultProvider(type, getBackendServicesKeys())
 }
 

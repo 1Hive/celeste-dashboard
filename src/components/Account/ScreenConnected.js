@@ -16,22 +16,15 @@ import { getNetworkName } from '../../lib/web3-utils'
 
 import { useWallet } from '../../providers/Wallet'
 
-function AccountScreenConnected({ providerId, onClosePopover, wallet }) {
+function AccountScreenConnected({ providerId }) {
   const theme = useTheme()
   const copy = useCopyToClipboard()
-  const { chainId } = useWallet()
+  const { account, chainId, resetConnection } = useWallet()
 
   const networkName = getNetworkName(chainId)
   const providerInfo = getProviderFromUseWalletId(providerId)
 
-  const handleCopyAddress = useCallback(() => copy(wallet.account), [
-    copy,
-    wallet,
-  ])
-
-  const handleDeactivate = useCallback(() => {
-    wallet.resetConnection()
-  }, [wallet])
+  const handleCopyAddress = useCallback(() => copy(account), [account, copy])
 
   return (
     <div
@@ -103,7 +96,7 @@ function AccountScreenConnected({ providerId, onClosePopover, wallet }) {
               `}
             >
               <IdentityBadge
-                entity={wallet.account}
+                entity={account}
                 compact
                 badgeOnly
                 css="cursor: pointer"
@@ -142,7 +135,7 @@ function AccountScreenConnected({ providerId, onClosePopover, wallet }) {
       </div>
 
       <Button
-        onClick={handleDeactivate}
+        onClick={resetConnection}
         wide
         css={`
           margin-top: ${2 * GU}px;

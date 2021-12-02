@@ -14,6 +14,7 @@ export const RINKEBY_STAGING_COURT =
 
 export const SUPPORTED_CHAINS = [100, 137]
 const XDAI_ETH_NODE = environment('XDAI_ETH_NODE')
+const POLYGON_ETH_NODE = environment('POLYGON_ETH_NODE')
 
 // TODO: Add type and name
 export const networkConfigs = {
@@ -23,8 +24,8 @@ export const networkConfigs = {
     name: 'xDai',
     type: 'xdai',
     chainId: 100,
+    defaultEth: XDAI_ETH_NODE,
     nodes: {
-      defaultEth: XDAI_ETH_NODE,
       subgraph: 'https://api.thegraph.com/subgraphs/name/1hive/celeste',
     },
     eip3085: {
@@ -52,18 +53,18 @@ export const networkConfigs = {
     court: '0x0ED8867EDaBD4d0b5045E45a39077D97a6B78cbE',
     explorer: 'polygonscan',
     name: 'Polygon',
-    type: 'polygon',
+    type: 'matic',
     chainId: 137,
+    defaultEth: POLYGON_ETH_NODE,
     nodes: {
-      defaultEth: 'https://polygon-rpc.com/',
       subgraph: 'https://api.thegraph.com/subgraphs/name/1hive/celeste-matic',
     },
     ipfs_endpoint: 'https://ipfs.io/ipfs/',
   },
   local: {
     court: '0xD833215cBcc3f914bD1C9ece3EE7BF8B14f841bb',
+    defaultEth: 'http://localhost:8545',
     nodes: {
-      defaultEth: 'http://localhost:8545',
       subgraph: 'http://127.0.0.1:8000/subgraphs/name/1hive/celeste-rpc',
     },
     ipfs_endpoint: 'http://127.0.0.1:8080/ipfs',
@@ -134,6 +135,7 @@ export function getSupportedChainsNamesFormatted() {
 
 export function getEthersNetwork() {
   const { type, chainId, ensRegistry } = getNetworkConfig()
+
   return {
     name: type,
     chainId: chainId,

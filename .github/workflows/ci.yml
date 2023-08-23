@@ -21,7 +21,7 @@ jobs:
           path: "**/node_modules"
           key: yarn-${{ hashFiles('yarn.lock') }}
       - name: Install dependencies
-        run: yarn install --frozen-lockfile
+        run: yarn install
       - name: Lint
         run: yarn lint
       - name: Build Celeste Dashboard

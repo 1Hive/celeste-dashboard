@@ -211,12 +211,13 @@ async function processRawDisputeData(dispute) {
       // Note that in this case, we expect the agreement's location to be relative to the
       // metadata URI. For example, if the metadataUri is `<cid>/metadata.json`, the agreement's
       // location would be `<cid>/<agreement>`
+      let ipfsEndpoint = defaultIpfsEndpoint()
+      if (ipfsEndpoint.endsWith('/')) {
+        ipfsEndpoint = ipfsEndpoint.slice(0, -1)
+      }
       const agreementUrl =
         ipfsPath && agreementText
-          ? resolvePathname(
-              agreementText,
-              `${defaultIpfsEndpoint()}/${ipfsPath}`
-            )
+          ? resolvePathname(agreementText, `${ipfsEndpoint}/${ipfsPath}`)
           : ''
 
       const {

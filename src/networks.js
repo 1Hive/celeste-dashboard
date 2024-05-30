@@ -27,7 +27,7 @@ export const networkConfigs = {
     chainId: 100,
     nodes: {
       defaultEth: XDAI_ETH_NODE,
-      subgraph: `https://gateway.thegraph.com/api/${SUBGRAPH_API_KEY}/subgraphs/id/HQcpdYKeSRuvjEwz8QL4nGYrJ6pUUxNoTcxssMn1Gc83`,
+      subgraph: `https://gateway-arbitrum.network.thegraph.com/api/${SUBGRAPH_API_KEY}/subgraphs/id/KvR9XcnqQzVv2j3h7FnQjxroUptEu56dtj7mtQ5TTun`,
     },
     eip3085: {
       chainId: '0x64',

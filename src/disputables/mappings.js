@@ -52,14 +52,14 @@ export const DISPUTABLE_SUBGRAPH_URLS = new Map([
   ...VOTING_APP_IDS.map(appId => [
     appId,
     {
-      xdai: `https://gateway.thegraph.com/api/${SUBGRAPH_API_KEY}/subgraphs/id/QmST8VZnjHrwhrW5gTyaiWJDhVcx6TooRv85B49zG7ziLH`,
+      xdai: `https://gateway-arbitrum.network.thegraph.com/api/${SUBGRAPH_API_KEY}/subgraphs/id/G4EbcSW588SUy8CdprPPxCN69VN8mxvnwt4oyR6YpGza`,
       rinkeby: 'https://api.thegraph.com/subgraphs/name/1hive/gardens-rinkeby',
     },
   ]),
   ...CONVICTION_VOTING_APP_IDS.map(appId => [
     appId,
     {
-      xdai: `https://gateway.thegraph.com/api/${SUBGRAPH_API_KEY}/subgraphs/id/QmST8VZnjHrwhrW5gTyaiWJDhVcx6TooRv85B49zG7ziLH`,
+      xdai: `https://gateway-arbitrum.network.thegraph.com/api/${SUBGRAPH_API_KEY}/subgraphs/id/G4EbcSW588SUy8CdprPPxCN69VN8mxvnwt4oyR6YpGza`,
       rinkeby: 'https://api.thegraph.com/subgraphs/name/1hive/gardens-rinkeby',
     },
   ]),
